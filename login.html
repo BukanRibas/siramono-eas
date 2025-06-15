@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Siramono - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-screen flex font-sans">
+    <!-- Kolom Kiri -->
+    <div class="w-1/2 bg-[#a2b377] relative overflow-hidden hidden md:block">
+        <!-- Bayangan daun -->
+        <img src="./img/daunbayangatas.png" class="absolute top-0 left-0 w-[130%] opacity-200 z-0"
+            alt="Bayangan atas" />
+        <img src="./img/daunbayangbawah.png" class="absolute bottom-0 left-50 w-[130%] opacity-200 z-0"
+            alt="Bayangan bawah" />
+
+        <!-- Daun utama -->
+        <img src="./img/daunataslogin.png" class="absolute top-0 left-0 w-[130%] z-10" alt="Daun atas" />
+        <img src="./img/daunbawahlogin.png" class="absolute bottom-0 left-0 w-[130%] z-50" alt="Daun bawah" />
+    </div>
+
+    <!-- Kolom Kanan -->
+    <div class="w-full md:w-1/2 bg-white flex flex-col justify-center items-center px-6 relative">
+        <!-- Navigasi -->
+        <div class="flex justify-between items-center mx-2 pt-2 pb-24 bg-white space-x-16">
+            <a href="beranda.html" class="text-green-900 font-bold">Beranda</a>
+            <a href="tanamanku.html">Tanamanku</a>
+            <a href="komunitas.html">Komunitas</a>
+        </div>
+
+        <div class="max-w-md w-full">
+            <h1 class="text-4xl font-bold text-[#4A5E20] text-center mb-2">Selamat Datang</h1>
+            <p class="text-center text-sm text-[#8B9855] mb-6">Setiap langkah besar diawali oleh langkah kecil</p>
+
+            <form id="loginForm" action="login.php" method="POST" class="space-y-4">
+
+                <!-- Username -->
+                <div>
+                    <label for="username" class="block text-sm text-[#4A5E20] font-medium mb-1">Username atau
+                        Email</label>
+                    <input type="text" id="username" name="username" placeholder="Masukkan username/email"
+                        class="w-full px-5 py-3 rounded-full bg-[#d8e5a8] placeholder:text-gray-600 focus:outline-none"
+                        required />
+                    <p id="usernameError" class="text-red-600 text-sm mt-1 hidden">Username minimal 3 karakter.</p>
+                </div>
+
+                <!-- Password -->
+                <div class="relative">
+                    <label for="password" class="block text-sm text-[#4A5E20] font-medium mb-1">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Masukkan Password"
+                        class="w-full px-5 py-3 rounded-full bg-[#d8e5a8] placeholder:text-gray-600 focus:outline-none pr-12"
+                        required />
+                    <button type="button" id="togglePassword"
+                        class="absolute right-5 top-1/2 -translate-y-1/2 text-gray-600 focus:outline-none">
+                        <!-- Add eye icon -->
+                    </button>
+                    <a href="#" class="block text-sm text-[#8B9855] mt-2 mb-2 text-right">Forgot Password?</a>
+                    <p id="passwordError" class="text-red-600 text-sm mt-1 hidden">Password minimal 6 karakter.</p>
+                </div>
+
+
+
+                <!-- Atau -->
+                <div class="flex items-center gap-2 mt-12 mb-2">
+                    <hr class="flex-grow border-t border-gray-300" />
+                    <span class="text-sm text-gray-500">Atau</span>
+                    <hr class="flex-grow border-t border-gray-300" />
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex justify-center gap-4">
+                    <button type="button"
+                        class="flex items-center gap-2 px-5 py-2 border border-[#a2b377] rounded-full hover:bg-gray-50 transition mb-12">
+                        <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5" alt="Google" />
+                        Google
+                    </button>
+                    <button type="button"
+                        class="flex items-center gap-2 px-5 py-2 border border-[#a2b377] rounded-full hover:bg-gray-50 transition mb-12">
+                        <img src="https://www.svgrepo.com/show/475647/facebook-color.svg" class="w-5 h-5"
+                            alt="Facebook" />
+                        Facebook
+                    </button>
+                </div>
+            </form>
+        </div>
+
+
+        <button type="submit"
+            class="w-[500px] bg-[#6d8442] text-white font-semibold py-3 mt-2 rounded-full hover:bg-[#5c7036] transition">
+            Log in
+        </button>
+
+
+        <p class="text-sm text-center text-gray-600 mt-4">
+            Belum punya akun?
+            <a href="register.html" class="text-green-800 font-semibold">Sign Up</a>
+        </p>
+    </div>
+    </div>
+</body>
+<script>
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+    const eyeOpen = document.getElementById('eyeOpen');
+    const eyeClosed = document.getElementById('eyeClosed');
+
+    togglePassword.addEventListener('click', () => {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        eyeOpen.classList.toggle('hidden');
+        eyeClosed.classList.toggle('hidden');
+    });
+</script>
+
+<!-- Validasi Form -->
+<script>
+    const form = document.getElementById("loginForm");
+
+    form.addEventListener("submit", function (event) {
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const usernameError = document.getElementById("usernameError");
+        const passwordError = document.getElementById("passwordError");
+        let valid = true;
+
+        usernameError.classList.add("hidden");
+        passwordError.classList.add("hidden");
+
+        if (username.length < 3) {
+            usernameError.classList.remove("hidden");
+            valid = false;
+        }
+
+        if (password.length < 6) {
+            passwordError.classList.remove("hidden");
+            valid = false;
+        }
+
+        if (!valid) {
+            event.preventDefault();
+        }
+    });
+</script>
+</body>
+
+</html>
