@@ -1,3 +1,8 @@
+@extends('layout.app2')
+@section('title', 'Login')
+@section('content')
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,9 +28,9 @@
   <!-- Kolom Kanan -->
   <div class="w-full md:w-1/2 bg-white flex flex-col justify-center items-center px-6 relative">
     <div class="flex justify-between items-center mx-2 pt-2 pb-24 space-x-16">
-      <a href="#" class="text-green-900 font-bold">Beranda</a>
+      {{-- <a href="#" class="text-green-900 font-bold">Beranda</a>
       <a href="#">Tanamanku</a>
-      <a href="#">Komunitas</a>
+      <a href="#">Komunitas</a> --}}
     </div>
 
     <div class="max-w-md w-full">

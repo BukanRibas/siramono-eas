@@ -11,15 +11,15 @@
     {{-- Optional: Bootstrap bisa dihapus jika kamu hanya pakai Tailwind --}}
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
 </head>
-<body class="bg-[#ffffff] text-gray-800">
+<body class="bg-[#f4f1e8] text-gray-800">
 
     {{-- Navbar --}}
-    @include('partials.navbar')
+    {{-- @include('partials.navbar') --}}
 
     {{-- Konten --}}
-    <div class="container mx-auto py-4 px-6">
-        @yield('content') 
-    </div>
+    {{-- <div class="container mx-auto py-4 px-6">
+        @yield('content') --}}
+    {{-- </div> --}} --}}
 
 </body>
 </html>

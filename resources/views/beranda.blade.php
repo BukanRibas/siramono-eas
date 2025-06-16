@@ -54,48 +54,59 @@
     <!-- Rekomendasi Tanaman -->
     <div class="bg-white rounded-2xl mx-4 md:mx-4 mt-2 p-4 relative z-10">
       <section class="py-10">
-        <h2 class="text-lg font-semibold mb-4 text-2xl">Rekomendasi Tanaman</h2>
+        <h2 class="text-3xl font-semibold mb-4">Rekomendasi Tanaman</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           @foreach ([
-            ['img' => 'aloe.png', 'name' => 'Lidah Buaya', 'latin' => 'Aloe vera'],
-            ['img' => 'pilea.png', 'name' => 'Pilea', 'latin' => 'Pilea peperomioides'],
-            ['img' => 'sirih.png', 'name' => 'Sirih Gading Satin', 'latin' => 'Scindapsus pictus'],
-            ['img' => 'calathea.png', 'name' => 'Calathea Fasciata', 'latin' => 'Goeppertia fasciata'],
+          ['img' => 'aloe.png', 'name' => 'Lidah Buaya', 'latin' => 'Aloe vera'],
+          ['img' => 'pilea.png', 'name' => 'Pilea', 'latin' => 'Pilea peperomioides'],
+          ['img' => 'sirih.png', 'name' => 'Sirih Gading Satin', 'latin' => 'Scindapsus pictus'],
+          ['img' => 'calathea.png', 'name' => 'Calathea Fasciata', 'latin' => 'Goeppertia fasciata'],
           ] as $plant)
-            <div class="bg-[#F2EED7] p-4 rounded-xl shadow">
-              <img src="{{ asset('img/' . $plant['img']) }}" alt="{{ $plant['name'] }}" class="mb-2 rounded">
-              <h3 class="text-sm font-semibold text-lg">{{ $plant['name'] }}</h3>
-              <p class="text-xs italic">{{ $plant['latin'] }}</p>
-            </div>
+          <div class="bg-[#F2EED7] p-4 rounded-xl shadow">
+            <img src="{{ asset('img/' . $plant['img']) }}" alt="{{ $plant['name'] }}" class="mb-2 rounded">
+            <h3 class="text-sm font-semibold text-lg">{{ $plant['name'] }}</h3>
+            <p class="text-xs italic">{{ $plant['latin'] }}</p>
+          </div>
           @endforeach
         </div>
       </section>
     </div>
   </div>
 
-  <!-- Komunitas Section -->
-  <div class="bg-white section-community flex flex-col md:flex-row p-6 gap-8">
-    <div class="flex-1">
-      <h2 class="text-4xl font-bold">Discover Our Community</h2>
-      <span class="text-[#647D3D] font-bold text-2xl">Popular and New</span>
+  <!-- Community Section -->
+  <div class="bg-white section-community flex justify-between px-10 py-10">
+    <div class="section-title text-4xl font-bold" style="flex: 1;">
+      Discover Our Community <br>
+      <span class="text-[#647D3D] font-bold">Popular and New</span>
     </div>
-    <div class="flex-1 text-base">
-      <p>Siramono Community adalah tempat berbagi dan berdiskusi seputar Siramono robot penyiram tanaman pintar.</p>
-      <p class="mt-2">Temui sesama entusiast Tanaman di Komunitas Siramono!</p>
+    <div class="community-intro text-base" style="flex: 1;">
+      <p class="mt-2">
+        Siramono Community adalah tempat berbagi dan berdiskusi seputar Siramono robot penyiram tanaman pintar.
+        Temukan inspirasi, tips, dan dukungan teknis untuk merawat tanamanmu dengan bantuan teknologi.
+      </p>
+      <p class="mt-4">Temui sesama entusiast Tanaman di Komunitas Siramono!</p>
     </div>
   </div>
 
-  <!-- Gambar Komunitas -->
-  <section class="community bg-white flex flex-col md:flex-row gap-6 px-6">
-    <div class="flex-1">
-      <img src="{{ asset('img/komunitas1.png') }}" alt="Komunitas 1" class="rounded-2xl w-full h-auto" />
+  <section class="community bg-white flex flex-col md:flex-row px-6 md:px-12 gap-4">
+    <div class="community-left flex-1">
+      <div class="community-card large">
+        <img src="{{ asset('img/komunitas1.png') }}" alt="Monstera">
+      </div>
     </div>
-    <div class="flex-1 grid grid-cols-2 gap-4">
-      <img src="{{ asset('img/komunitas2.png') }}" class="rounded-2xl w-full h-60 object-cover" />
-      <img src="{{ asset('img/komunitas3.png') }}" class="rounded-2xl w-full h-60 object-cover" />
-      <img src="{{ asset('img/komunitas4.png') }}" class="rounded-2xl w-full h-40 object-cover col-span-2" />
+    <div class="community-right flex-1 grid grid-cols-2 gap-4">
+      <div class="community-card small">
+        <img src="{{ asset('img/komunitas2.png') }}" alt="Indoor Plants">
+      </div>
+      <div class="community-card small">
+        <img src="{{ asset('img/komunitas3.png') }}" alt="Please Don't Die">
+      </div>
+      <div class="community-card small bottom col-span-2">
+        <img src="{{ asset('img/komunitas4.png') }}" alt="Garden Hacks">
+      </div>
     </div>
   </section>
+
 
   <!-- Highlight Tanaman -->
   <section class="px-4 py-16 flex justify-center bg-white">
